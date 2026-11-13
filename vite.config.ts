@@ -15,7 +15,7 @@ import tailwindcss from '@tailwindcss/vite'
  * no cross-site cookie relaxation is ever required.
  */
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS === 'true' ? '/sci/' : '/',
+  base: process.env.GITHUB_ACTIONS === 'true' ? '/scii/' : '/',
   plugins: [
     react(),
     tailwindcss(),
