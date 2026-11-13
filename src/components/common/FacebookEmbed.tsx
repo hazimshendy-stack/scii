@@ -97,7 +97,7 @@ export const FacebookEmbed: React.FC<FacebookEmbedProps> = ({
           frameBorder="0"
           allowFullScreen={true}
           allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-          loading="lazy"
+          loading="eager"
           className="max-w-[500px] w-full rounded-2xl"
         />
       </div>
