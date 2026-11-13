@@ -30,9 +30,15 @@ export default defineConfig({
     },
   },
   build: {
-    // Never inline assets as data: URLs — a page image inlined into JS would
-    // place protected pixels in the bundle, outside the access-control path.
-    assetsInlineLimit: 0,
+    assetsInlineLimit: 4096, // Inline small assets to reduce HTTP requests
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          ui: ['lucide-react']
+        }
+      }
+    }
   },
 })

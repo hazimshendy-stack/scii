@@ -37,6 +37,8 @@ const PosterThumbnail: React.FC<{ src: string; title: string }> = ({ src, title 
         className="w-full h-full object-contain"
         style={{ pointerEvents: 'none', userSelect: 'none' }}
         onContextMenu={noOp}
+        loading="lazy"
+        decoding="async"
       />
     </div>
   );
@@ -58,6 +60,8 @@ const PosterFullViewer: React.FC<{ pages: string[]; title: string }> = ({ pages,
             className="max-w-full h-auto object-contain"
             style={{ pointerEvents: 'none', userSelect: 'none' }}
             onContextMenu={noOp}
+            loading="lazy"
+            decoding="async"
           />
         </div>
       ))}
