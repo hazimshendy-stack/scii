@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocale } from '../context/LocaleContext';
 import { activities } from '../data/seedData';
 import forumPostersData from '../data/forumPosters.json';
@@ -11,10 +11,11 @@ interface PosterMeta {
   id: string;
   filename: string;
   title: string;
-  path: string;
-  rawPath: string;
+  path?: string;
+  rawPath?: string;
   thumbnail: string;
   pages: string[];
+  pageCount?: number;
 }
 
 type Tab = 'posters' | 'forum2' | 'forum1';
