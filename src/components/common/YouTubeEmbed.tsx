@@ -29,7 +29,7 @@ export const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
       if (playlistId) {
         return {
           isEmbeddable: true,
-          embedSrc: `https://www.youtube.com/embed/videoseries?list=${encodeURIComponent(playlistId)}`,
+          embedSrc: `https://www.youtube-nocookie.com/embed/videoseries?list=${encodeURIComponent(playlistId)}`,
         };
       }
 
@@ -38,7 +38,7 @@ export const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
       if (v) {
         return {
           isEmbeddable: true,
-          embedSrc: `https://www.youtube.com/embed/${encodeURIComponent(v)}`,
+          embedSrc: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(v)}`,
         };
       }
 
@@ -48,7 +48,7 @@ export const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
         if (id) {
           return {
             isEmbeddable: true,
-            embedSrc: `https://www.youtube.com/embed/${encodeURIComponent(id)}`,
+            embedSrc: `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`,
           };
         }
       }
@@ -91,7 +91,7 @@ export const YouTubeEmbed: React.FC<YouTubeEmbedProps> = ({
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
-          loading="eager"
+          loading="lazy"
           className="absolute top-0 left-0 w-full h-full border-0"
         />
       </div>
