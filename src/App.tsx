@@ -1,0 +1,59 @@
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { LocaleProvider } from './context/LocaleContext';
+import { ScrollToTop } from './components/common/ScrollToTop';
+import { Navbar } from './components/layout/Navbar';
+import { Footer } from './components/layout/Footer';
+import { HomeView } from './views/HomeView';
+import { AboutView } from './views/AboutView';
+import { ActivitiesView } from './views/ActivitiesView';
+import { ActivityDetailView } from './views/ActivityDetailView';
+// TeamView is preserved but hidden — do not delete
+// import { TeamView } from './views/TeamView';
+import { MagazineView } from './views/MagazineView';
+import { PodcastView } from './views/PodcastView';
+import { EpisodeDetailView } from './views/EpisodeDetailView';
+import { TeamAchievementsView } from './views/TeamAchievementsView';
+import { AnnualForumView } from './views/AnnualForumView';
+import { JoinUsView } from './views/JoinUsView';
+import { ContactView } from './views/ContactView';
+import { PrivacyView } from './views/PrivacyView';
+import { PartnersView } from './views/PartnersView';
+import { NotFoundView } from './views/NotFoundView';
+
+export default function App() {
+  return (
+    <LocaleProvider>
+      <ScrollToTop />
+      <div className="flex flex-col min-h-screen bg-white">
+        <Navbar />
+        <main className="flex-1 pt-20 bg-white">
+          <Routes>
+            <Route path="/:locale" element={<HomeView />} />
+            <Route path="/:locale/about" element={<AboutView />} />
+            <Route path="/:locale/annual-forum" element={<AnnualForumView />} />
+            {/* Removed individual forum pages — redirect to unified annual forum hub */}
+            <Route path="/:locale/projects-activities/1st-forum-specialized-programs" element={<Navigate to={`/ar/annual-forum`} replace />} />
+            <Route path="/:locale/projects-activities/2nd-forum-specialized-programs" element={<Navigate to={`/ar/annual-forum`} replace />} />
+            <Route path="/:locale/projects-activities" element={<ActivitiesView />} />
+            <Route path="/:locale/projects-activities/:slug" element={<ActivityDetailView />} />
+            {/* Team page hidden — preserved for future use, not publicly linked */}
+            {/* <Route path="/:locale/team" element={<TeamView />} /> */}
+            <Route path="/:locale/team" element={<Navigate to={`/ar`} replace />} />
+            <Route path="/:locale/partners" element={<PartnersView />} />
+            <Route path="/:locale/fudul" element={<MagazineView />} />
+            <Route path="/:locale/sci-cast" element={<PodcastView />} />
+            <Route path="/:locale/sci-cast/episode/:episodeNumber" element={<EpisodeDetailView />} />
+            <Route path="/:locale/team-achievements" element={<TeamAchievementsView />} />
+            <Route path="/:locale/research" element={<Navigate to="/ar/team-achievements" replace />} />
+            <Route path="/:locale/join-us" element={<JoinUsView />} />
+            <Route path="/:locale/contact" element={<ContactView />} />
+            <Route path="/:locale/privacy" element={<PrivacyView />} />
+            <Route path="/" element={<Navigate to="/ar" replace />} />
+            <Route path="*" element={<NotFoundView />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </LocaleProvider>
+  );
+}
