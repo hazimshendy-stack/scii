@@ -23,7 +23,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'entrepreneurship',
     activity_en: 'Hosting and training partner for Ideation Camps, Design Thinking workshops, and entrepreneurship sessions. Official media collaboration for Sci Cast podcast production.',
     activity_ar: 'شريك استضافة وتدريب لمعسكرات توليد الأفكار وورش التفكير التصميمي وريادة الأعمال، وشريك الإنتاج الإعلامي لبودكاست ساي كاست (Sci Cast).',
-    logoUrl: '/images/creativa-hub-logo.png',
+    logoUrl: '/images/creativa-hub-logo.webp',
     featured: true,
   },
   {
@@ -35,7 +35,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'academic',
     activity_en: 'Strategic academic partnership supporting the ETSS Program, advanced scientific research mentorship, and student forums.',
     activity_ar: 'شراكة أكاديمية استراتيجية لدعم برنامج ETSS، وتأهيل الباحثين في العلوم المتقدمة، والمشاركة في المنتديات العلمية.',
-    logoUrl: '/partners/Zewail City.jpg',
+    logoUrl: '/partners/Zewail City.webp',
     featured: true,
   },
   {
@@ -47,7 +47,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'academic',
     activity_en: 'Collaborative initiative advancing medical physics, biophysics research seminars, and student symposiums.',
     activity_ar: 'تعاون علمي لتطوير برامج الفيزياء الطبية والفيزياء الحيوية، ودعم الحلقات النقاشية والندوات الأكاديمية.',
-    logoUrl: '/partners/Arab Society for Physics.jpg',
+    logoUrl: '/partners/Arab Society for Physics.webp',
     featured: true,
   },
   {
@@ -59,7 +59,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'academic',
     activity_en: 'Advancing biomedical applications, medical physics training, and student exploratory visits in clinical research.',
     activity_ar: 'دعم تطبيقات الفيزياء الطبية والتدريب البحثي الإكلينيكي وتنظيم الزيارات الاستكشافية لطلاب كليات العلوم.',
-    logoUrl: '/partners/57357.png',
+    logoUrl: '/partners/57357.webp',
     featured: true,
   },
   {
@@ -71,7 +71,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'industrial',
     activity_en: 'Professional summer internship programs in water purification chemistry, lab quality control, and industrial wastewater treatment.',
     activity_ar: 'برامج التدريب الصيفي الاحترافي في كيمياء تنقية المياه ومراقبة الجودة المعملية وتكنولوجيا معالجة مياه الصرف الصناعي.',
-    logoUrl: '/partners/Holding Company for Water and Wastewater.jpg',
+    logoUrl: '/partners/Holding Company for Water and Wastewater.webp',
     featured: true,
   },
   {
@@ -83,7 +83,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'community',
     activity_en: 'Strategic alliance sponsoring young innovators, scientific education programs, and supporting the ETSS Program.',
     activity_ar: 'تحالف استراتيجي لدعم المبتكرين الشباب وبرامج التعليم العلمي ورعاية مسارات برنامج ETSS.',
-    logoUrl: '/partners/Misr El Kheir Foundation.png',
+    logoUrl: '/partners/Misr El Kheir Foundation.webp',
     featured: true,
   },
   {
@@ -95,7 +95,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'industrial',
     activity_en: 'Provided a high-precision automated evaluation and scoring system for scientific poster sessions at the Second Student Forum.',
     activity_ar: 'تطوير وتشغيل نظام تقييم رقمي مؤتمت لتحكيم البوسترات العلمية والمسابقات في المنتدى الطلابي السنوي الثاني.',
-    logoUrl: '/partners/Dolphin Models.png',
+    logoUrl: '/partners/Dolphin Models.webp',
     featured: true,
   },
   {
@@ -109,7 +109,7 @@ export const partnersDirectory: PartnerItem[] = [
     activity_ar: 'تنظيم ملتقيات مهنية متخصصة ومسارات التأهيل للعمل بالدعاية الطبية وتطبيقات الصيدلة الصناعية ومستحضرات التجميل العلاجية.',
     tagline_en: 'Your Gateway to Medical Rep and Personal Care Excellence',
     tagline_ar: 'بوابتكم نحو التميز في الدعاية الطبية ومستحضرات العناية الشخصية',
-    logoUrl: '/partners/Pureté Pharmaceuticals.png',
+    logoUrl: '/partners/Pureté Pharmaceuticals.webp',
     featured: true,
   },
   {
@@ -121,7 +121,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'entrepreneurship',
     activity_en: 'Academic support in student recruitment evaluations, intellectual property guidance, and scientific venture commercialization.',
     activity_ar: 'دعم لجان مقابلات وتقييم الأعضاء الجدد، ورش الملكية الفكرية، وتوجيه المشاريع البحثية نحو التطبيق الاقتصادي.',
-    logoUrl: '/partners/TICO.jpg',
+    logoUrl: '/partners/TICO.webp',
     featured: true,
   },
   {
@@ -133,7 +133,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'entrepreneurship',
     activity_en: 'Collaboration with Mansoura University in organizing and supporting the HULT Prize on-campus competition, empowering student teams to design sustainable social enterprises addressing global challenges.',
     activity_ar: 'التعاون مع جامعة المنصورة بالتحديد في تنظيم ودعم مسابقة HULT Prize على مستوى الجامعة، وتمكين الفرق الطلابية من تصميم مشاريع اجتماعية مستدامة.',
-    logoUrl: '/partners/HULT Prize.jpg',
+    logoUrl: '/partners/HULT Prize.webp',
   },
   {
     id: 'partner-wen',
@@ -144,7 +144,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'entrepreneurship',
     activity_en: 'Co-mentoring within the ETSS Program, advancing female scientific leadership, and entrepreneurship readiness in STEM.',
     activity_ar: 'شراكة توجيه ضمن مسار ETSS لتمكين رائدات الأعمال في مجالات العلوم والتكنولوجيا والابتكار المستدام.',
-    logoUrl: '/partners/Women Entrepreneurship Network (WEN).jpg',
+    logoUrl: '/partners/Women Entrepreneurship Network (WEN).webp',
   },
   {
     id: 'partner-green-panda',
@@ -155,7 +155,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'industrial',
     activity_en: 'Hands-on laboratory training and applied industrial chemistry workshops in modern formulation and green cosmetics manufacturing.',
     activity_ar: 'ورش عمل تطبيقية وتدريب معملي على كيمياء تركيب المستحضرات التجميلية الطبيعية والتحليل الصناعي الحديث.',
-    logoUrl: '/partners/Green Panda Cosmetics.jpg',
+    logoUrl: '/partners/Green Panda Cosmetics.webp',
   },
   {
     id: 'partner-haloul',
@@ -166,7 +166,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'academic',
     activity_en: 'Co-organization of advanced scientific workshops, stem cell therapy seminars, and peer-to-peer student academic circles.',
     activity_ar: 'تنظيم مشترك لورش العمل الأكاديمية وجلسات العلاج بالخلايا الجذعية وحلقات النقاش التخصصية لطلاب العلوم.',
-    logoUrl: '/partners/HALOUL SCIENCE CLUB.jpg',
+    logoUrl: '/partners/HALOUL SCIENCE CLUB.webp',
   },
   {
     id: 'partner-breakin-point',
@@ -177,7 +177,7 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'community',
     activity_en: 'Interactive skill-building programs, leadership bootcamps, and cognitive agility workshops tailored for science student leaders.',
     activity_ar: 'معسكرات تدريبية متقدمة لتنمية المهارات القيادية والمرونة الفكرية وإعداد قادة الفرق في الأنشطة الطلابية العلمية.',
-    logoUrl: '/partners/Breakin Point.jpg',
+    logoUrl: '/partners/Breakin Point.webp',
   },
   {
     id: 'partner-pob',
@@ -188,6 +188,6 @@ export const partnersDirectory: PartnerItem[] = [
     category: 'academic',
     activity_en: 'Fostering exchange in molecular biotechnology, genomics research awareness, and youth-led scientific initiatives.',
     activity_ar: 'تعزيز التبادل المعرفي في أبحاث التكنولوجيا الحيوية الجزيئية ومبادرات الوعي الجيني بين أوساط الطلاب والباحثين الشباب.',
-    logoUrl: '/partners/POB.png',
+    logoUrl: '/partners/POB.webp',
   },
 ];

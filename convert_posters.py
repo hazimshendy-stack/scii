@@ -33,21 +33,26 @@ for idx, p in enumerate(posters):
         matrix = pymupdf.Matrix(2.0, 2.0)
         thumb_matrix = pymupdf.Matrix(0.6, 0.6)
         
-        thumb_rel_path = f"/forum_posters_images/{poster_id}-thumb.jpg"
-        thumb_abs_path = os.path.join(output_dir, f"{poster_id}-thumb.jpg")
+        thumb_rel_path = f"/forum_posters_images/{poster_id}-thumb.webp"
+        thumb_abs_path = os.path.join(output_dir, f"{poster_id}-thumb.webp")
         
         for page_idx in range(page_count):
             page = doc[page_idx]
             pix = page.get_pixmap(matrix=matrix, alpha=False)
-            page_filename = f"{poster_id}-page-{page_idx+1}.jpg"
+            page_filename = f"{poster_id}-page-{page_idx+1}.webp"
             page_abs_path = os.path.join(output_dir, page_filename)
-            pix.save(page_abs_path, jpg_quality=88)
+            # Save as webp via PIL
+            from PIL import Image
+            import io
+            im = Image.open(io.BytesIO(pix.tobytes("png")))
+            im.save(page_abs_path, "WEBP", quality=82, method=6)
             pages_images.append(f"/forum_posters_images/{page_filename}")
             
             # Save thumbnail from page 1
             if page_idx == 0:
                 thumb_pix = page.get_pixmap(matrix=thumb_matrix, alpha=False)
-                thumb_pix.save(thumb_abs_path, jpg_quality=82)
+                thumb_im = Image.open(io.BytesIO(thumb_pix.tobytes("png")))
+                thumb_im.save(thumb_abs_path, "WEBP", quality=80, method=6)
         
         doc.close()
         

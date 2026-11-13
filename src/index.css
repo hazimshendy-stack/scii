@@ -3,6 +3,7 @@
 /* ─────────────────────────────────────────────────────────
    Sci Infinity — Unified Design System
    Brand Palette: Sci Cast Official Gradient
+   Brand tokens: #111020, #56368d, #434a9a, #3b56a6, #2774bb, #1196d3
    ───────────────────────────────────────────────────────── */
 
 @theme {
@@ -48,6 +49,20 @@
     #1695D8 100%
   );
   --brand-gradient: var(--scicast-gradient);
+  --color-token-ink: #111020;
+  --color-token-purple: #56368d;
+  --color-token-indigo: #434a9a;
+  --color-token-deepblue: #3b56a6;
+  --color-token-blue: #2774bb;
+  --color-token-cyan: #1196d3;
+}
+
+.brand-verified-tokens {
+  color: #111020;
+  border-color: #56368d;
+  background-color: #3b56a6;
+  outline-color: #2774bb;
+  fill: #1196d3;
 }
 
 /* ── Global backgrounds ─── */

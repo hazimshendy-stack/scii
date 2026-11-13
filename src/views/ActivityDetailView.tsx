@@ -136,6 +136,7 @@ export const ActivityDetailView: React.FC = () => {
           <img
             src={publicAsset(activity.image_url || activity.cover_image_url || '')}
             alt={t(activity.title_ar, activity.title_en)}
+            decoding="async"
             className="w-full max-h-[550px] object-contain rounded-2xl"
           />
         </div>

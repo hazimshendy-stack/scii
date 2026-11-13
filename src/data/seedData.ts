@@ -152,23 +152,23 @@ export const committees: Committee[] = [
 ];
 
 export const teamMembers: TeamMember[] = [
-  { id: "tm_1", name_ar: "عبدالرحمن سعد", name_en: "Abdelrahman Saad", role_ar: "الرئيس التنفيذي (CEO)", role_en: "CEO", committee_id: "c_exec", photo_url: "/images/ec.jpg", verification_status: "verified", rights_status: "cleared" },
-  { id: "tm_2", name_ar: "حسام الدين", name_en: "Hossam Eldin", role_ar: "مدير العمليات (COO)", role_en: "COO", committee_id: "c_exec", photo_url: "/images/sl.jpg", verification_status: "verified", rights_status: "cleared" },
-  { id: "tm_3", name_ar: "ادم وليد", name_en: "Adam Waleed", role_ar: "الأمين العام (GS)", role_en: "General Secretary", committee_id: "c_exec", photo_url: "/images/hr.jpg", verification_status: "verified", rights_status: "cleared" },
+  { id: "tm_1", name_ar: "عبدالرحمن سعد", name_en: "Abdelrahman Saad", role_ar: "الرئيس التنفيذي (CEO)", role_en: "CEO", committee_id: "c_exec", photo_url: null, verification_status: "verified", rights_status: "cleared" },
+  { id: "tm_2", name_ar: "حسام الدين", name_en: "Hossam Eldin", role_ar: "مدير العمليات (COO)", role_en: "COO", committee_id: "c_exec", photo_url: null, verification_status: "verified", rights_status: "cleared" },
+  { id: "tm_3", name_ar: "ادم وليد", name_en: "Adam Waleed", role_ar: "الأمين العام (GS)", role_en: "General Secretary", committee_id: "c_exec", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_4", name_ar: "عمرو خالد", name_en: "Amr Khaled", role_ar: "قائد علمي (Scientific Leader)", role_en: "Scientific Leader", committee_id: "c_sci", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_5", name_ar: "عمر محمد", name_en: "Omar Mohamed", role_ar: "قائد علمي (Scientific Leader)", role_en: "Scientific Leader", committee_id: "c_sci", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_6", name_ar: "ادهم وليد", name_en: "Adham Waleed", role_ar: "مسؤول الموارد البشرية (Head of HR)", role_en: "Head of HR", committee_id: "c_hr", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_7", name_ar: "شهد الغندور", name_en: "Shahd El-Ghandour", role_ar: "نائب مسؤول الموارد البشرية", role_en: "Vice Head of HR", committee_id: "c_hr", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_8", name_ar: "اسراء سعد", name_en: "Esraa Saad", role_ar: "نائب مسؤول الموارد البشرية", role_en: "Vice Head of HR", committee_id: "c_hr", photo_url: null, verification_status: "verified", rights_status: "cleared" },
-  { id: "tm_9", name_ar: "منى دهب", name_en: "Mona Dahab", role_ar: "مسؤول العلاقات العامة (Head of PR)", role_en: "Head of PR", committee_id: "c_pr", photo_url: "/images/pr.jpg", verification_status: "verified", rights_status: "cleared" },
+  { id: "tm_9", name_ar: "منى دهب", name_en: "Mona Dahab", role_ar: "مسؤول العلاقات العامة (Head of PR)", role_en: "Head of PR", committee_id: "c_pr", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_10", name_ar: "شهد ايمن", name_en: "Shahd Ayman", role_ar: "نائب مسؤول العلاقات العامة", role_en: "Vice Head of PR", committee_id: "c_pr", photo_url: null, verification_status: "verified", rights_status: "cleared" },
-  { id: "tm_11", name_ar: "محمود فرحات", name_en: "Mahmoud Farahat", role_ar: "مسؤول لجنة الإعلام (Head of Media)", role_en: "Head of Media", committee_id: "c_media", photo_url: "/images/media.jpg", verification_status: "verified", rights_status: "cleared" },
+  { id: "tm_11", name_ar: "محمود فرحات", name_en: "Mahmoud Farahat", role_ar: "مسؤول لجنة الإعلام (Head of Media)", role_en: "Head of Media", committee_id: "c_media", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_12", name_ar: "اية محمد", name_en: "Aya Mohamed", role_ar: "مسؤول كتابة المحتوى", role_en: "Head of Content Writing", committee_id: "c_media", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_13", name_ar: "سيف خالد", name_en: "Seif Khaled", role_ar: "مدير المحتوى (Content Manager)", role_en: "Content Manager", committee_id: "c_media", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_14", name_ar: "غنى قاسم", name_en: "Ghena Qasim", role_ar: "مسؤول التصميم (Head of Design)", role_en: "Head of Design", committee_id: "c_media", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_15", name_ar: "سعد فكري", name_en: "Saad Fikry", role_ar: "مسؤول المونتاج (Head of Video Editing)", role_en: "Head of Video Editing", committee_id: "c_media", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_16", name_ar: "يوستينا ماجد", name_en: "Youstina Maged", role_ar: "مسؤول صناعة المحتوى", role_en: "Head of Content Creation", committee_id: "c_media", photo_url: null, verification_status: "verified", rights_status: "cleared" },
-  { id: "tm_17", name_ar: "احمد الباز", name_en: "Ahmed El-Baz", role_ar: "مسؤول التنظيم (Head of OR)", role_en: "Head of Organization", committee_id: "c_or", photo_url: "/images/or.jpg", verification_status: "verified", rights_status: "cleared" },
+  { id: "tm_17", name_ar: "احمد الباز", name_en: "Ahmed El-Baz", role_ar: "مسؤول التنظيم (Head of OR)", role_en: "Head of Organization", committee_id: "c_or", photo_url: null, verification_status: "verified", rights_status: "cleared" },
   { id: "tm_18", name_ar: "الزهراء حسين", name_en: "Al-Zahraa Hussein", role_ar: "نائب مسؤول التنظيم", role_en: "Vice Head of OR", committee_id: "c_or", photo_url: null, verification_status: "verified", rights_status: "cleared" }
 ];
 
@@ -176,7 +176,7 @@ export const activities: Activity[] = [
   {
     "id": "act-001",
     "slug": "arps-workshop-medical-physics-2026",
-    "image_url": "/activity-photos/arps-workshop-medical-physics-2026.jpg",
+    "image_url": "/activity-photos/arps-workshop-medical-physics-2026.webp",
     "title_ar": "ورشة ARPS للتطورات في الفيزياء الطبية والفيزياء الحيوية 2026",
     "title_en": "ARPS Workshop on Advances in Medical Physics & Biophysics 2026",
     "category": "workshop",
@@ -205,7 +205,7 @@ export const activities: Activity[] = [
   {
     "id": "act-002",
     "slug": "entrepreneurship-business-camp",
-    "image_url": "/activity-photos/entrepreneurship-business-camp.jpg",
+    "image_url": "/activity-photos/entrepreneurship-business-camp.webp",
     "title_ar": "معسكر ريادة الأعمال وإدارة الأعمال",
     "title_en": "Entrepreneurship & Business Camp",
     "category": "camp",
@@ -379,7 +379,7 @@ export const activities: Activity[] = [
     "id": "act-004",
     "slug": "etss-entrepreneurship-training-stem",
     "facebook_url": "https://www.facebook.com/permalink.php?story_fbid=pfbid025JDKLP2c8taQojzPYkRRGtWseSG8qhjJRpiCvbkYXi89GZqqEz8K5LLBVej8N38Gl&id=61569116681397",
-    "image_url": "/activity-photos/etss-entrepreneurship-training-stem.jpg",
+    "image_url": "/activity-photos/etss-entrepreneurship-training-stem.webp",
     "title_ar": "تدريب ريادة الأعمال لطلاب STEM (برنامج ETSS)",
     "title_en": "ETSS — Entrepreneurship Training for STEM Students",
     "category": "camp",
@@ -397,7 +397,7 @@ export const activities: Activity[] = [
   {
     "id": "act-005",
     "slug": "orientation-day-sci-infinity",
-    "image_url": "/activity-photos/orientation-day-sci-infinity.jpg",
+    "image_url": "/activity-photos/orientation-day-sci-infinity.webp",
     "title_ar": "يوم الترحيب والتعريف بفريق المبادرة (Orientation Day)",
     "title_en": "Sci Infinity Orientation Day",
     "category": "team",
@@ -416,7 +416,7 @@ export const activities: Activity[] = [
   {
     "id": "act-006",
     "slug": "ideation-camp-creativa",
-    "image_url": "/activity-photos/ideation-camp-creativa.jpg",
+    "image_url": "/activity-photos/ideation-camp-creativa.webp",
     "title_ar": "معسكر توليد الأفكار (Ideation Camp) — بالتعاون مع كريتيفا",
     "title_en": "Ideation Camp — Sci Infinity × Creativa Hub",
     "category": "camp",
@@ -442,7 +442,7 @@ export const activities: Activity[] = [
   {
     "id": "act-007",
     "slug": "atomic-absorption-spectrometer-course",
-    "image_url": "/activity-photos/atomic-absorption-spectrometer-course.jpg",
+    "image_url": "/activity-photos/atomic-absorption-spectrometer-course.webp",
     "title_ar": "دورة عملية على جهاز الامتصاص الذري (AAS)",
     "title_en": "A Practical Course on an Atomic Absorption Spectrometer",
     "category": "workshop",
@@ -468,7 +468,7 @@ export const activities: Activity[] = [
   {
     "id": "act-008",
     "slug": "industrial-detergents-workshop",
-    "image_url": "/activity-photos/industrial-detergents-workshop.jpg",
+    "image_url": "/activity-photos/industrial-detergents-workshop.webp",
     "title_ar": "ورشة عمل في المنظفات الصناعية",
     "title_en": "Workshop in Industrial Detergents",
     "category": "workshop",
@@ -487,7 +487,7 @@ export const activities: Activity[] = [
   {
     "id": "act-009",
     "slug": "chemistry-cosmetic-industry-nov",
-    "image_url": "/activity-photos/chemistry-cosmetic-industry-nov.jpg",
+    "image_url": "/activity-photos/chemistry-cosmetic-industry-nov.webp",
     "title_ar": "الكيمياء في صناعة مستحضرات التجميل (ورشة نوفمبر)",
     "title_en": "Chemistry in the Cosmetic Industry (November Workshop)",
     "category": "workshop",
@@ -513,7 +513,7 @@ export const activities: Activity[] = [
   {
     "id": "act-010",
     "slug": "human-pluripotent-stem-cells-session",
-    "image_url": "/activity-photos/human-pluripotent-stem-cells-session.jpg",
+    "image_url": "/activity-photos/human-pluripotent-stem-cells-session.webp",
     "title_ar": "الخلايا الجذعية متعددة القدرات وعلاج أمراض ضمور الشبكية",
     "title_en": "Human Pluripotent Stem Cells: A Versatile Platform for Cell Therapy and Retinal Degeneration",
     "category": "session",
@@ -532,7 +532,7 @@ export const activities: Activity[] = [
   {
     "id": "act-011",
     "slug": "chemical-biosensors-environmental-applications",
-    "image_url": "/activity-photos/chemical-biosensors-environmental-applications.jpg",
+    "image_url": "/activity-photos/chemical-biosensors-environmental-applications.webp",
     "title_ar": "التطورات الحديثة في المستشعرات الكيميائية والبيولوجية للتطبيقات البيئية",
     "title_en": "Recent Advances in Chemical and Bio-Sensors for Environmental Applications",
     "category": "session",
@@ -551,7 +551,7 @@ export const activities: Activity[] = [
   {
     "id": "act-012",
     "slug": "bioinformatics-drug-discovery-session",
-    "image_url": "/activity-photos/bioinformatics-drug-discovery-session.jpg",
+    "image_url": "/activity-photos/bioinformatics-drug-discovery-session.webp",
     "title_ar": "تطبيقات المعلوماتية الحيوية في اكتشاف الأدوية وأبحاث الأمراض",
     "title_en": "Applications of Bioinformatics in Drug Discovery & Disease Research",
     "category": "session",
@@ -570,7 +570,7 @@ export const activities: Activity[] = [
   {
     "id": "act-013",
     "slug": "medical-rep-career-gateway",
-    "image_url": "/activity-photos/medical-rep-career-gateway.jpg",
+    "image_url": "/activity-photos/medical-rep-career-gateway.webp",
     "title_ar": "بوابة العمل كمندوب طبي والتميز في العناية الشخصية",
     "title_en": "The Gateway to Medical Rep & Personal Care Excellence",
     "category": "training",
@@ -596,7 +596,7 @@ export const activities: Activity[] = [
   {
     "id": "act-014",
     "slug": "scientific-figures-biorender-workshop",
-    "image_url": "/activity-photos/scientific-figures-biorender-workshop.jpg",
+    "image_url": "/activity-photos/scientific-figures-biorender-workshop.webp",
     "title_ar": "تصميم الرسوم والأشكال العلمية في الأوراق البحثية عبر BioRender",
     "title_en": "How to Create Scientific Figures in Research Papers by BioRender",
     "category": "training",
@@ -616,7 +616,7 @@ export const activities: Activity[] = [
   {
     "id": "act-015",
     "slug": "rd-detergents-cosmetics-session",
-    "image_url": "/activity-photos/rd-detergents-cosmetics-session.jpg",
+    "image_url": "/activity-photos/rd-detergents-cosmetics-session.webp",
     "title_ar": "البحث والتطوير (R&D) في صناعة المنظفات ومستحضرات التجميل",
     "title_en": "Research & Development in the Detergents and Cosmetics Industry",
     "category": "session",
@@ -636,7 +636,7 @@ export const activities: Activity[] = [
   {
     "id": "act-016",
     "slug": "plant-biotechnology-applications",
-    "image_url": "/activity-photos/plant-biotechnology-applications.jpg",
+    "image_url": "/activity-photos/plant-biotechnology-applications.webp",
     "title_ar": "تطبيقات التكنولوجيا الحيوية النباتية (Plant Biotechnology)",
     "title_en": "Application on Plant Biotechnology",
     "category": "session",
@@ -655,7 +655,7 @@ export const activities: Activity[] = [
   {
     "id": "act-017",
     "slug": "synthetic-biology-fields-applications",
-    "image_url": "/activity-photos/synthetic-biology-fields-applications.jpg",
+    "image_url": "/activity-photos/synthetic-biology-fields-applications.webp",
     "title_ar": "البيولوجيا التخليقية: المجالات والتطبيقات (Synthetic Biology)",
     "title_en": "Synthetic Biology: Fields and Applications",
     "category": "session",
@@ -674,7 +674,7 @@ export const activities: Activity[] = [
   {
     "id": "act-018",
     "slug": "chemistry-cosmetic-industry-july",
-    "image_url": "/activity-photos/chemistry-cosmetic-industry-july.jpg",
+    "image_url": "/activity-photos/chemistry-cosmetic-industry-july.webp",
     "title_ar": "الكيمياء في صناعة مستحضرات التجميل (ورشة يوليو)",
     "title_en": "Chemistry in the Cosmetic Industry (July Workshop)",
     "category": "workshop",
@@ -700,7 +700,7 @@ export const activities: Activity[] = [
   {
     "id": "act-019",
     "slug": "water-analysis-treatment-training",
-    "image_url": "/activity-photos/water-analysis-treatment-training.jpg",
+    "image_url": "/activity-photos/water-analysis-treatment-training.webp",
     "title_ar": "تدريب تحليل ومعالجة المياه (Water Analysis & Treatment)",
     "title_en": "Water Analysis and Treatment Training",
     "category": "training",
@@ -749,7 +749,7 @@ export const activities: Activity[] = [
   {
     "id": "act-021",
     "slug": "pr-training-program",
-    "image_url": "/activity-photos/pr-training-program.jpg",
+    "image_url": "/activity-photos/pr-training-program.webp",
     "title_ar": "تدريب العلاقات العامة والتواصل المؤسسي (PR Training)",
     "title_en": "Public Relations (PR) Training",
     "category": "training",
@@ -788,7 +788,7 @@ export const activities: Activity[] = [
   {
     "id": "act-022",
     "slug": "scientific-research-program",
-    "image_url": "/activity-photos/scientific-research-program.jpg",
+    "image_url": "/activity-photos/scientific-research-program.webp",
     "title_ar": "برنامج البحث العلمي وإعداد الباحثين",
     "title_en": "Scientific Research Program",
     "category": "training",
@@ -846,7 +846,7 @@ export const magazineIssues: MagazineIssue[] = [
     title_ar: "مجلة فضول — العدد الأول",
     title_en: "Fudul Magazine — Issue 1",
     publication_date: "2024",
-    cover_image_url: "/images/magazine/1.png",
+    cover_image_url: "/images/magazine/1.webp",
     pdf_url: null,
     status: "published",
     verification_status: "verified",
@@ -893,7 +893,7 @@ export const researchAchievements: ResearchPaper[] = [
 export const podcastEpisodes: PodcastEpisode[] = [
   {
     "id": "ep-001",
-    "cover_image_url": "/podcast-thumbnails/ep-1.jpg",
+    "cover_image_url": "/podcast-thumbnails/ep-1.webp",
     "slug": "episode-1",
     "episode_number": 1,
     "title_ar": "سوق العمل والعمل الحر وعقلية ريادة الأعمال — د. محمد منسان",
@@ -911,7 +911,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
   },
   {
     "id": "ep-002",
-    "cover_image_url": "/podcast-thumbnails/ep-2.jpg",
+    "cover_image_url": "/podcast-thumbnails/ep-2.webp",
     "slug": "episode-2",
     "episode_number": 2,
     "title_ar": "رسم الطريق في مرحلة الجامعة — د. أحمد فكري",
@@ -929,7 +929,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
   },
   {
     "id": "ep-003",
-    "cover_image_url": "/podcast-thumbnails/ep-3.jpg",
+    "cover_image_url": "/podcast-thumbnails/ep-3.webp",
     "slug": "episode-3",
     "episode_number": 3,
     "title_ar": "بناء العقلية الناجحة وإدارة الوقت وتطوير المهارات — أ. محمد توفيق",
@@ -946,7 +946,7 @@ export const podcastEpisodes: PodcastEpisode[] = [
   },
   {
     "id": "ep-004",
-    "cover_image_url": "/podcast-thumbnails/ep-4.png",
+    "cover_image_url": "/podcast-thumbnails/ep-4.webp",
     "slug": "episode-4",
     "episode_number": 4,
     "title_ar": "من التطوع والريادة البيئية إلى المسابقات الدولية — مصطفى عطية",

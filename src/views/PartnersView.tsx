@@ -38,6 +38,7 @@ export const PartnersView: React.FC = () => {
                 src={publicAsset(partner.logoUrl)}
                 alt={locale === 'ar' ? partner.name_ar : partner.name_en}
                 loading="lazy"
+                decoding="async"
                 className="max-h-28 max-w-[90%] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </div>

@@ -205,6 +205,7 @@ export const ActivitiesView: React.FC = () => {
                       src={publicAsset(act.image_url)}
                       alt={t(act.title_ar, act.title_en)}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-auto max-h-64 object-contain rounded-2xl group-hover:scale-[1.02] transition-transform duration-300"
                     />
                   </div>

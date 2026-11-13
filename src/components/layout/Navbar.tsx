@@ -79,8 +79,11 @@ export const Navbar: React.FC = () => {
               aria-label="Sci Infinity Home"
             >
               <img 
-                src={publicAsset('/images/logo.png')}
+                src={publicAsset('/images/logo.webp')}
                 alt="Sci Infinity Logo" 
+                width={56}
+                height={56}
+                decoding="async"
                 className="h-14 sm:h-16 w-auto max-w-[56px] sm:max-w-[220px] object-contain drop-shadow-sm select-none"
               />
             </Link>
@@ -140,8 +143,12 @@ export const Navbar: React.FC = () => {
               className="flex items-center gap-3 group"
             >
               <img 
-                src={publicAsset('/images/logo.png')}
+                src={publicAsset('/images/logo.webp')}
                 alt="Sci Infinity" 
+                width={40}
+                height={40}
+                loading="lazy"
+                decoding="async"
                 className="h-10 w-auto object-contain drop-shadow" 
               />
             </Link>

@@ -57,8 +57,9 @@ export const PodcastView: React.FC = () => {
         <div className="shrink-0 flex items-center justify-center">
           <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl bg-[#15153d] p-4 shadow-lg border border-[#15153d] flex items-center justify-center overflow-hidden">
             <img 
-              src={publicAsset('/images/podcast/scicast-logo.png')} 
+              src={publicAsset('/images/podcast/scicast-logo.webp')} 
               alt="Sci Cast Official Logo"
+              decoding="async"
               onError={(e) => {
                 (e.currentTarget as HTMLElement).style.display = 'none';
                 const fb = document.getElementById('scicast-logo-fb');
@@ -93,8 +94,10 @@ export const PodcastView: React.FC = () => {
         </div>
         <div className="p-4 sm:p-5 rounded-2xl bg-gray-50 border border-gray-200 text-center flex flex-col items-center justify-center min-h-[96px]">
           <img 
-            src={publicAsset('/images/creativa-hub-logo.png')} 
+            src={publicAsset('/images/creativa-hub-logo.webp')} 
             alt="Creativa Hub" 
+            loading="lazy"
+            decoding="async"
             className="h-12 sm:h-14 w-auto max-w-[140px] sm:max-w-[170px] object-contain"
           />
           <div className="text-xs text-gray-500 mt-1 font-semibold">{t('شريك الاستضافة', 'Media Partner')}</div>
@@ -134,6 +137,7 @@ export const PodcastView: React.FC = () => {
                       alt={t(ep.title_ar, ep.title_en)}
                       className="w-full h-auto object-contain rounded-2xl group-hover:scale-[1.01] transition-transform duration-300"
                       loading="lazy"
+                      decoding="async"
                     />
                     <span className="absolute top-4 start-4 px-2.5 py-1 rounded-xl bg-brand-purple text-white font-bold text-xs shadow">
                       {t(`الحلقة ${ep.episode_number}`, `Episode ${ep.episode_number}`)}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocale } from '../context/LocaleContext';
 import { activities } from '../data/seedData';
 import forumPostersData from '../data/forumPosters.json';
+import { publicAsset } from '../lib/publicAsset';
 import {
   Calendar, MapPin, Award, Video, FileText, ChevronLeft, X, Image as ImageIcon
 } from 'lucide-react';
@@ -32,7 +33,7 @@ const PosterThumbnail: React.FC<{ src: string; title: string }> = ({ src, title 
       onDragStart={noOp}
     >
       <img
-        src={src}
+        src={publicAsset(src)}
         alt={title}
         className="w-full h-full object-contain"
         style={{ pointerEvents: 'none', userSelect: 'none' }}
@@ -55,7 +56,7 @@ const PosterFullViewer: React.FC<{ pages: string[]; title: string }> = ({ pages,
       {pages.map((page, idx) => (
         <div key={idx} className="max-w-full">
           <img
-            src={page}
+            src={publicAsset(page)}
             alt={title}
             className="max-w-full h-auto object-contain"
             style={{ pointerEvents: 'none', userSelect: 'none' }}
@@ -208,14 +209,14 @@ export const AnnualForumView: React.FC = () => {
                 >
                   {/* PDF Thumbnail */}
                   <div className="w-full overflow-hidden rounded-t-2xl">
-                    <PosterThumbnail src={poster.thumbnail} title={poster.title} />
+                    <PosterThumbnail src={poster.thumbnail} title={t(`بوستر ${index + 1}`, `Poster ${index + 1}`)} />
                   </div>
                   {/* Footer */}
-                  <div className="p-2.5 space-y-1 text-center border-t border-gray-100">
-                    <span className="text-[11px] font-bold text-gray-700 group-hover:text-brand-purple transition-colors line-clamp-2 leading-tight block">
-                      {poster.title.length > 40 ? poster.title.substring(0, 40) + '…' : poster.title}
+                  <div className="p-2.5 text-center border-t border-gray-100 flex items-center justify-between px-3 bg-gray-50/60">
+                    <span className="text-xs font-bold text-gray-700 group-hover:text-brand-purple transition-colors">
+                      {t(`بوستر #${index + 1}`, `Poster #${index + 1}`)}
                     </span>
-                    <span className="text-[9px] uppercase font-bold px-1.5 py-0.5 rounded bg-brand-purple/10 text-brand-purple inline-block">
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-brand-purple/10 text-brand-purple group-hover:bg-brand-purple group-hover:text-white transition-all">
                       {t('عرض', 'View')}
                     </span>
                   </div>
@@ -417,13 +418,8 @@ export const AnnualForumView: React.FC = () => {
 
             {/* Title + counter */}
             <div className="flex flex-col items-center gap-0.5 min-w-0 px-3">
-              <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-brand-purple text-white shrink-0">
-                {activePosterIndex! + 1} / {posters.length}
-              </span>
-              <span className="text-xs font-semibold text-white/80 line-clamp-1 max-w-[200px] sm:max-w-xs text-center">
-                {currentPoster.title.length > 55
-                  ? currentPoster.title.substring(0, 55) + '…'
-                  : currentPoster.title}
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-brand-purple text-white shrink-0 shadow-sm">
+                {t(`البوستر ${activePosterIndex! + 1} من ${posters.length}`, `Poster ${activePosterIndex! + 1} of ${posters.length}`)}
               </span>
             </div>
 

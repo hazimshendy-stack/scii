@@ -49,8 +49,12 @@ export const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center gap-6">
           <Link to={`/${locale}`} className="flex items-center gap-3 group" aria-label="Sci Infinity Home">
             <img 
-              src={publicAsset('/images/logo.png')}
+              src={publicAsset('/images/logo.webp')}
               alt="Sci Infinity Logo" 
+              width={48}
+              height={48}
+              loading="lazy"
+              decoding="async"
               className="h-12 w-auto object-contain drop-shadow-sm select-none" 
             />
           </Link>

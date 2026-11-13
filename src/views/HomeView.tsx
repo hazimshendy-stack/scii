@@ -164,6 +164,7 @@ export const HomeView: React.FC = () => {
                       src={publicAsset(displayImg)}
                       alt={t(act.title_ar, act.title_en)}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-auto max-h-52 object-contain rounded-xl group-hover:scale-[1.02] transition-transform duration-300"
                     />
                   </div>
@@ -216,6 +217,8 @@ export const HomeView: React.FC = () => {
             <img 
               src={publicAsset(magazineIssues[0].cover_image_url)}
               alt="Fudul Magazine Cover" 
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
             />
           </Link>
@@ -278,6 +281,7 @@ export const HomeView: React.FC = () => {
                       src={publicAsset(ep.cover_image_url)}
                       alt={t(ep.title_ar, ep.title_en)}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent" />
@@ -381,6 +385,7 @@ export const HomeView: React.FC = () => {
                   src={publicAsset(partner.logoUrl)}
                   alt={locale === 'ar' ? partner.name_ar : partner.name_en}
                   loading="lazy"
+                  decoding="async"
                   className="max-h-16 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
                 />
               </div>
