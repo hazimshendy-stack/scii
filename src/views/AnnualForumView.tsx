@@ -13,20 +13,11 @@ interface PosterMeta {
   title: string;
   path: string;
   rawPath: string;
+  thumbnail: string;
+  pages: string[];
 }
 
 type Tab = 'posters' | 'forum2' | 'forum1';
-
-// ─── Shared pdfjs loader (singleton) ───────────────────────────────────────
-let pdfjsModule: typeof import('pdfjs-dist') | null = null;
-async function getPdfJs() {
-  if (!pdfjsModule) {
-    pdfjsModule = await import('pdfjs-dist');
-    pdfjsModule.GlobalWorkerOptions.workerSrc =
-      `https://unpkg.com/pdfjs-dist@${pdfjsModule.version}/build/pdf.worker.min.mjs`;
-  }
-  return pdfjsModule;
-}
 
 // ─── Block right-click / keyboard shortcuts on canvas ───────────────────────
 const noOp = (e: React.SyntheticEvent) => e.preventDefault();
@@ -69,51 +60,6 @@ const PosterFullViewer: React.FC<{ pages: string[]; title: string }> = ({ pages,
           />
         </div>
       ))}
-    </div>
-  );
-};
-
-/** Renders a single pre-rendered ImageData onto a protected canvas */
-const ProtectedPageCanvas: React.FC<{ imageData: ImageData; pageNum: number; totalPages: number }> = ({
-  imageData, pageNum, totalPages
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    canvas.width = imageData.width;
-    canvas.height = imageData.height;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-    ctx.putImageData(imageData, 0, 0);
-  }, [imageData]);
-
-  return (
-    <div
-      className="relative w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl bg-white select-none"
-      onContextMenu={noOp}
-      onDragStart={noOp}
-      style={{ userSelect: 'none' }}
-    >
-      <canvas
-        ref={canvasRef}
-        className="w-full h-auto block"
-        style={{ pointerEvents: 'none', userSelect: 'none', display: 'block' }}
-        onContextMenu={noOp}
-      />
-      {/* Invisible overlay — blocks right-click on canvas itself */}
-      <div
-        className="absolute inset-0"
-        onContextMenu={noOp}
-        onDragStart={noOp}
-        style={{ cursor: 'default', userSelect: 'none' }}
-      />
-      {totalPages > 1 && (
-        <div className="absolute bottom-2 left-2 text-[10px] font-bold bg-black/40 text-white px-2 py-0.5 rounded-full">
-          {pageNum} / {totalPages}
-        </div>
-      )}
     </div>
   );
 };
