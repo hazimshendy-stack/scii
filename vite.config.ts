@@ -30,13 +30,14 @@ export default defineConfig({
     },
   },
   build: {
-    assetsInlineLimit: 4096, // Inline small assets to reduce HTTP requests
+    assetsInlineLimit: 4096,
     sourcemap: false,
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['lucide-react']
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
         }
       }
     }
