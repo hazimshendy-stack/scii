@@ -5,11 +5,11 @@ Static React SPA for a non-profit initiative. Two languages (ar default/rtl, en/
 Two magazine readers: static pre-rendered WebP pages (`MagazineView`) and grant-based protected reader (`ProtectedPage`) via FODOL API.
 Deploy: GitHub Pages (repo pages under path `/scii/`) + optional Cloudflare Pages / Vercel (`/`).
 No unit tests — "test" means `npm run build` + `scripts/verify-release.js` artifact checks (10 gates, rationale in docs/adr/0003-release-gate-not-unit-tests.md).
-**README.md, DEPLOYMENT.md (rewritten 2026-11-16, code-verified), and docs/ (ai/ + adr/ + KNOWN_ISSUES) exist. Trust package.json / vite.config.ts / CI over any doc (see docs/ai/GOTCHAS.md §5).**
+**README.md, DEPLOYMENT.md (rewritten 2026-11-16, code-verified), and docs/ (ai/ + adr/) exist. Trust package.json / vite.config.ts / CI over any doc (see docs/ai/GOTCHAS.md §5).**
 
 ## Stack
 React 19 · TypeScript 6 (strict) · Vite 8 · Tailwind CSS v4 (`@theme` in `src/index.css`) · react-router-dom 7 · oxlint · lucide-react.
-`pdfjs-dist`/`vite-plugin-pwa` are dead package.json entries (code loads PDF.js from CDN; PWA is hand-maintained) — see docs/KNOWN_ISSUES.md.
+PDF.js is loaded from a CDN at runtime — do NOT re-add `pdfjs-dist`. The PWA is hand-maintained in `public/` — do NOT re-add `vite-plugin-pwa`. (Dead entries removed 2026-11-16.)
 
 ## Commands (see docs/ai/COMMANDS.md for details)
 - `npm run dev` — Vite dev server; proxies `/api` → `FODOL_DEV_API` (default `http://127.0.0.1:8787`)
@@ -28,8 +28,8 @@ React 19 · TypeScript 6 (strict) · Vite 8 · Tailwind CSS v4 (`@theme` in `src
 - `src/data/` — content data: `seedData.ts` (950 lines — NEVER read fully), `forumPosters.json`, `partnersData.ts`.
 - `src/index.css` — Tailwind v4 `@theme` design system; brand tokens are HARD-VERIFIED by verify-release.js.
 - `public/` — static content (magazine webp, sw.js, manifest.json, 404.html).
-- `scripts/` — `verify-release.js` (release gate), data/PDF tooling.
-- `docs/ai/` — shared agent context (read ONLY the file matching your task). `docs/adr/` = decisions, `docs/KNOWN_ISSUES.md` = known gaps.
+- `scripts/` — `verify-release.js` (release gate) + `convert_all_to_webp.py` (asset optimizer).
+- `docs/ai/` — shared agent context (read ONLY the file matching your task). `docs/adr/` = decisions.
 
 ## Working rules
 First read: this file → `docs/ai/CONTEXT_MAP.md` (search patterns) → the one relevant `docs/ai/*` file.
@@ -37,20 +37,20 @@ Search with `rg`/grep by symbol before opening files: `rg -l "requestPageGrant"`
 Read a view/component only the region you need (offset/limit); views are self-contained except imports.
 
 ## Never
-- Do NOT read/commit: `node_modules/`, `dist/`, `package-lock.json`, `seedData.ts` in full, `.env.local`, `private-storage/` (FODOL private content — committing defeats the protection system), `server/scripts/test-assets/`, `.tools/`.
+- Do NOT read/commit: `node_modules/`, `dist/`, `package-lock.json`, `seedData.ts` in full, `.env.local`, `private-storage/` (FODOL private content — committing defeats the protection system).
 - Do NOT open large files fully (>150 lines) before searching; do NOT re-read a file you already read and haven't changed.
 - Do NOT edit generated files: `dist/**`, `package-lock.json`, `public/magazine/*` (pre-rendered assets, regenerated server-side).
 - Do NOT run: `git push --force`, deleting `public/`, `rm -rf dist` in production contexts, or any command touching `private-storage/`.
 - Do NOT change FODOL grant/token flow, cookies, or URL construction in `contentApi.ts` — see docs/ai/GOTCHAS.md §1.
 - Do NOT weaken the light-mode-only design system or drop brand tokens checked by verify-release.js.
-- Do NOT enable live forms: `VITE_ENABLE_LIVE_FORMS=true` requires privacy/legal sign-off (see .env.example).
+- Do NOT enable live forms: any live data collection (`VITE_ENABLE_LIVE_FORMS=true`) requires privacy/legal sign-off — policy survives the env cleanup that removed the dead var.
 
 ## Editing rules
 - Code: TypeScript strict; components are function components; i18n via `useLocale().t(arText, enText)` — every user-facing string needs both languages.
 - Routes: add in `src/App.tsx` only; route pattern `/:locale/<slug>`; keep redirect blocks tidy.
 - CSS: Tailwind utilities + `@theme` tokens in `src/index.css`; verify tokens survive in compiled CSS (verify-release checks `#111020` etc.).
 - Tests: there ARE none. Verify via `npm run build` + `npm test`. Add new checks to `scripts/verify-release.js` as `check(...)` blocks — do not introduce a test framework without asking.
-- Env: new public vars must be `VITE_*` and documented in `.env.example` + `.env.fodol.example`.
+- Env: new public vars must be `VITE_*` and documented in `.env.fodol.example` (the single env template).
 
 ## Before finishing any task — checklist
 - [ ] `npm run build` passes (tsc clean)

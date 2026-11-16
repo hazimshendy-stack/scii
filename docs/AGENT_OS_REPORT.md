@@ -1,5 +1,7 @@
 # Agent Operating System — Final Report (Sci Infinity FODOL)
 
+> **Superseded (2026-11-16):** this historical report documents the state at its date only. A later full reorg/cleanup removed `docs/KNOWN_ISSUES.md`, the dead dependencies (`pdfjs-dist`, `vite-plugin-pwa`), the dead env vars/config, one-shot migration scripts, and unreferenced assets. Treat every current-state claim in this file as potentially stale; trust `AGENTS.md`, `package.json`, and the code.
+
 **Date:** 2026-11-16 · **Scope:** full reverse-engineering + documentation/token-optimization of the existing repository.
 **Method:** every structural claim below is evidence-labeled: **VERIFIED** (checked in code / executed) or **INFERRED** (strong evidence). Nothing destructive was done; production code was only read, never modified.
 

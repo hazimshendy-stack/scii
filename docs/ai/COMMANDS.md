@@ -18,8 +18,8 @@ PowerShell execution-policy issues with `npx`/npm shims: run `node node_modules/
 Add new release checks as `check('name', () => {...})` blocks. Full rationale: `docs/adr/0003-release-gate-not-unit-tests.md`. Passing does **not** prove runtime behavior (there is no test runner).
 
 ## Environment
-- Frontend public vars: `VITE_FODOL_API_BASE` (empty = same origin), `VITE_DB_MODE`, `VITE_ENABLE_LIVE_FORMS` (see GOTCHAS — these two are currently unreferenced in src).
-- FODOL server vars (NOT part of this frontend's runtime): see `.env.fodol.example`.
+- Frontend public vars: `VITE_FODOL_API_BASE` only (empty = same origin) — see `.env.fodol.example`.
+- FODOL server runtime/secrets are NOT part of this frontend's repo — they live in the FODOL server repository.
 - `.env.local` exists in the workspace and is git-ignored — do not read or commit it.
 
 ## Deployment

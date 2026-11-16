@@ -27,7 +27,7 @@
 - No third-party error tracking configured.
 
 ## Forms
-- `VITE_ENABLE_LIVE_FORMS` gate concept exists in env examples but is **not referenced anywhere in src** — Contact form currently uses a static/mailto handler (`ContactView.tsx handleEmailSubmit`). Needs confirmation: is live-form wiring planned or dead config?
+- The `VITE_ENABLE_LIVE_FORMS` gate was dead config (removed from env templates 2026-11-16); Contact form currently uses a static/mailto handler (`ContactView.tsx handleEmailSubmit`). If live forms are ever planned, reintroduce the gate deliberately — with documented privacy/legal sign-off.
 - Do not enable any real data collection without privacy/legal sign-off.
 
 ## Testing

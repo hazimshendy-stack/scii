@@ -11,7 +11,7 @@ Estimated reduction: **~80–90%** for a typical task; up to >95% if the old beh
 |---|---|---|
 | Root guidance | rediscovered each session (~5k+) | AGENTS.md loaded once ~3k |
 | Task-specific context | 5–15 exploratory reads (~10–25k) | 1 docs/ai file + 2–5 greps (~2–4k) |
-| Accidental big reads (seedData 73KB ≈ 18k, MagazineView 17K, seedDataUpdated.json 13K) | common | forbidden by rule + CONTEXT_MAP |
+| Accidental big reads (seedData 73KB ≈ 18k, MagazineView 17K) | common | forbidden by rule + CONTEXT_MAP |
 | Duplicated env/deploy text (present in 3+ files) | re-read | single source each (.env.fodol.example stays canonical for server vars) |
 | **Total/task** | **~25–45k** | **~4–7k** |
 

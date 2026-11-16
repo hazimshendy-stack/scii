@@ -28,8 +28,6 @@ rg -n "TODO|FIXME|XXX" src
 
 ## Files NOT to read fully (search instead)
 - `src/data/seedData.ts` (950 lines, ~73 KB) — content data; read interfaces (1–60) or `rg "export const"`.
-- `src/data/seedDataUpdated.json` (53 KB) — generated seed snapshot; diff with seedData.ts only if migrating content.
-- `src/data/fbUrlMapping.json` — generated Facebook URL map.
 - `src/views/MagazineView.tsx` (680) — read the doc header + specific handler region.
 - `src/views/TeamAchievementsView.tsx` (516), `AnnualForumView.tsx` (435), `HomeView.tsx` (406) — region reads only.
 - `dist/**`, `node_modules/**`, `package-lock.json`, `public/magazine/**` (39×2 webp), `public/images/**` — never.

@@ -36,8 +36,8 @@ A change is complete only when **all** of the following hold:
 - **Styling:** Tailwind v4 utilities + tokens in `src/index.css` `@theme`. Light-mode only; don't add dark mode.
   If you change a brand token, update the token list in `scripts/verify-release.js` in the same change.
 - **Routes:** add only in `src/App.tsx`, pattern `/:locale/<slug>` (kebab-case).
-- **Env:** new public vars must be `VITE_*` and documented in both `.env.example` and `.env.fodol.example`.
-  (Caution: `VITE_DB_MODE` / `VITE_ENABLE_LIVE_FORMS` are currently dead config — see `docs/KNOWN_ISSUES.md`.)
+- **Env:** new public vars must be `VITE_*` and documented in `.env.fodol.example` (single env template).
+  (Policy: live forms — e.g. a future `VITE_ENABLE_LIVE_FORMS` — require documented privacy/legal sign-off before any wiring.)
 - **Tests:** there are none. To add a release check, append a `check('Name', () => {...})` block to
   `scripts/verify-release.js`. Do not introduce a test framework without asking the maintainer.
 
@@ -47,7 +47,7 @@ A change is complete only when **all** of the following hold:
   reader concurrency. See `docs/ai/GOTCHAS.md` §1 — the protected reader is a security boundary.
 - Do not enable live forms (`VITE_ENABLE_LIVE_FORMS`) without documented privacy/legal sign-off.
 - Do not delete or "clean up" intentionally-preserved code (e.g. the hidden `TeamView`).
-- Do not hand-edit generated content (`public/magazine/**`, `src/data/fbUrlMapping.json`).
+- Do not hand-edit generated content (`public/magazine/**` — server-pipeline pre-renders; committed static assets).
 
 ## Security-sensitive files
 

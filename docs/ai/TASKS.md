@@ -34,7 +34,7 @@
 ## Upgrade a dependency
 1. `npm install <pkg>@version` (updates lockfile — the only allowed lockfile edit, via npm).
 2. `npm run build` catches TS breakage; check React peer versions (React 19).
-3. Note: `pdfjs-dist` is a declared dep but the code uses a CDN import instead (`components/common/PdfThumbnail.tsx`, `AnnualForumView.tsx`) — confirm before upgrading.
+3. Note: PDF.js is a CDN runtime import, **not** a dependency (`components/common/PdfThumbnail.tsx`, `AnnualForumView.tsx`) — do not re-add `pdfjs-dist`.
 
 ## Add a release-check gate
 Append a `check('Title', () => {...})` block in `scripts/verify-release.js`; it runs after `npm run build` via `npm test`.

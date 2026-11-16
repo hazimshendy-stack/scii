@@ -46,8 +46,9 @@ the honest documentation in the file's header comments.
   `Referrer-Policy: strict-origin-when-cross-origin`, and immutable `Cache-Control` for static assets
   (`vercel.json`). GitHub Pages is static; add equivalent headers at the hosting layer if you self-host.
 - PDF.js is loaded from a **CDN at runtime** (`PdfThumbnail.tsx`, `AnnualForumView.tsx`) via
-  `/* @vite-ignore */`, deliberately kept out of the bundle. Note: Subresource-Integrity / pinning of the
-  CDN is not configured — see `docs/KNOWN_ISSUES.md`.
+  `/* @vite-ignore */`, deliberately kept out of the bundle. Note: Subresource-Integrity / version pinning of
+  the CDN is **not** configured — accepted risk as of 2026-11-16; mitigate by pinning the CDN version or
+  self-hosting pdf.js before any security-hardening pass.
 
 ## Report a vulnerability
 

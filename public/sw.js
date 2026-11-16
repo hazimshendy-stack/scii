@@ -22,7 +22,7 @@
  *   4. Anything else passes straight through, untouched.
  */
 
-const CACHE_NAME = 'sci-infinity-v7';
+const CACHE_NAME = 'sci-infinity-v8';
 const scopedUrl = (asset) => new URL(asset, self.registration.scope).toString();
 
 /** Offline shell only. No content, no protected material. */
@@ -35,14 +35,11 @@ const PRECACHE_ASSETS = ['offline.html', 'manifest.json'];
  */
 const CACHEABLE_PATTERNS = [
   /\/assets\/[A-Za-z0-9._-]+\.(js|css|woff2?|ttf)$/,
-  /\/favicon\.svg$/,
-  /\/icons\.svg$/,
   /\/images\/[A-Za-z0-9._-]+\.webp$/,
   /\/activity-photos\/[A-Za-z0-9._-]+\.webp$/,
   /\/partners\/[^/]+\.webp$/,
   /\/podcast-thumbnails\/[A-Za-z0-9._-]+\.webp$/,
   /\/forum_posters_images\/[A-Za-z0-9._-]+\.webp$/,
-  /\/logo\.webp$/,
 ];
 
 function isCacheable(url) {

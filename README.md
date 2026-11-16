@@ -54,7 +54,6 @@ PWA via hand-maintained `sw.js` + `manifest.json` (offline fallback `offline.htm
   (index table inside AGENTS.md). Hard limits in AGENTS.md always apply.
 - **Deploying:** [`DEPLOYMENT.md`](DEPLOYMENT.md) (verified against CI).
 - **Architecture decisions:** [`docs/adr/`](docs/adr/README.md).
-- **Known issues / open questions:** [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md).
 - **Contributing:** [`CONTRIBUTING.md`](CONTRIBUTING.md) · **Security / vulnerability reporting:** [`SECURITY.md`](SECURITY.md).
 
 ## License

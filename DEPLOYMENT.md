@@ -68,7 +68,7 @@ npm run dev      # Vite on http://localhost:5173
 - The dev Vite server proxies `/api` → `$FODOL_DEV_API` (default `http://127.0.0.1:8787`) so the
   protected reader can talk to the FODOL content server on the same origin (first-party HttpOnly cookie).
 - The FODOL content **server is a separate repository** — it is not in this repo. To develop the
-  protected reader you need it running on `8787` (see `scripts/fodol-env.ps1` in that repo). The static
+  protected reader you need it running on `8787` (configure it from the environment template in that repo). The static
   site (everything except the protected magazine) works with no server.
 
 ## Environment variables (frontend runtime)
@@ -80,10 +80,10 @@ Only **two** variables are actually read by the frontend code:
 | `VITE_FODOL_API_BASE` | `src/lib/contentApi.ts` | Base for protected-content API calls. Empty = same origin (recommended). | empty |
 | `import.meta.env.BASE_URL` | Vite built-in | Drives `publicAsset()`, router `basename`, SW registration. Set from `vite.config.ts` `base`. | `/` or `/scii/` |
 
-> `VITE_DB_MODE`, `VITE_ENABLE_LIVE_FORMS`, and `VITE_SUPABASE_*` appear in `.env.example` /
-> `.env.fodol.example` but are **not referenced anywhere in `src/` or `scripts/`** — they are
-> dead config from an earlier version. See `docs/ai/GOTCHAS.md` §5 and `docs/KNOWN_ISSUES.md`.
-> Do **not** wire them in or enable live forms without privacy/legal sign-off.
+> The dead config vars (`VITE_DB_MODE`, `VITE_ENABLE_LIVE_FORMS`, `VITE_SUPABASE_*`) were removed
+> from the env templates on 2026-11-16 after grep-verification that none are referenced in `src/`.
+> Do **not** wire in any live data collection or forms without documented privacy/legal sign-off
+> (policy preserved in `docs/ai/GOTCHAS.md` §5 and `CONTRIBUTING.md`).
 
 ## Production checklist
 
