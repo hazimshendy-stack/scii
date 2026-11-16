@@ -1,128 +1,102 @@
 # Sci Infinity — Deployment Guide
 
+Verified against `.github/workflows/deploy.yml`, `vercel.json`, `vite.config.ts`, and `package.json`.
+When this file and those files disagree, **trust the code** (same trust order as `docs/ai/GOTCHAS.md` §5).
+
 ## Prerequisites
 
-- Node.js v24+ (Antigravity Node v24.21.0 available at `C:\Users\2026\AppData\Roaming\Antigravity\bin\`)
-- npm package manager (accessed via Antigravity Node)
+- Node.js with npm. CI (`deploy.yml`) builds with **Node 20** — target 20+ locally.
+- No build-time secrets required for the frontend (all runtime config is public `VITE_*`).
 
-## Build Locally
+> Note: earlier drafts of this file referenced an old machine path (`d:\mo\frontend`)
+> and "Node v24". Both are stale. The repo-root `npm run build` is canonical.
 
-To build the project locally, run:
+## Commands
 
-```bash
-cd d:\mo\frontend
-node node_modules\vite\bin\vite.js build
-```
+| Command | What it does |
+|---|---|
+| `npm install` (or `ci`) | Install dependencies (CI uses `npm ci`). |
+| `npm run build` | `tsc -b && vite build` → `dist/`. Fails on any TS error. |
+| `npm test` | Runs the build, then `node scripts/verify-release.js` (artifact + brand-token gate — **not** unit tests). |
+| `npm run preview` | Serves `dist/` locally. |
 
-This will generate:
-- `dist/index.html`
-- `dist/assets/index-[hash].js` (main bundle)
-- `dist/assets/index-[hash].css` (styles)
-- All images from `public/` copied to `dist/images/`
+`build` output: `dist/index.html`, `dist/assets/*.js` + `*.css`, and everything copied from `public/`.
 
-## Deployment to Cloudflare Pages
+## Base path: `/scii/` vs `/`
 
-1. **Push code to GitHub**:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit: Sci Infinity frontend with PWA"
-   git remote add origin https://github.com/YOUR_USERNAME/sci-infinity.git
-   git push -u origin main
-   ```
+This is the single most important deployment fact — see `docs/ai/GOTCHAS.md` §3.
 
-2. **Connect to Cloudflare Pages**:
-   - Go to Cloudflare Dashboard → Pages
-   - Click "Create a project"
-   - Connect to your GitHub repository
-   - Build configuration:
-     - **Build command**: `npm run build` (or `node node_modules/vite/bin/vite.js build`)
-     - **Build output directory**: `dist`
-   - Click "Save and Deploy"
+- `vite.config.ts` sets `base` to **`/scii/` when `GITHUB_ACTIONS=true`** (GitHub Pages), else **`/`**.
+- CI sets the GitHub Pages environment, so the Pages build automatically uses `/scii/`.
+- Vercel / Cloudflare build outside CI → base `/`.
+- Consequence: **never hard-code absolute `/images/...` or `/assets/...`** in code or `index.html`.
+  Use `publicAsset('images/...')` in TS, or `%BASE_URL%` in `index.html`.
 
-3. **Environment Variables** (optional):
-   If you have a Supabase project, add these in Cloudflare Pages:
-   - `VITE_SUPABASE_URL`: Your Supabase project URL
-   - `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+## GitHub Pages (primary, automated CI)
 
-## Deployment to Vercel
+1. Push to `main` (or `master`) → `.github/workflows/deploy.yml` runs.
+2. Steps: checkout → Node 20 (`npm ci`) → `npm run build` → `cp dist/index.html dist/404.html` (SPA fallback) → `actions/upload-pages-artifact` → `actions/deploy-pages`.
+3. Repository must be configured for GitHub Pages "GitHub Actions" source; the Pages site is the project path (`/scii/`).
+4. `GITHUB_ACTIONS=true` is provided by the runner, which flips the Vite base to `/scii/`.
 
-1. Push code to GitHub
-2. Import project in Vercel
-3. Set build command: `npm run build` or `node node_modules/vite/bin/vite.js build`
-4. Output directory: `dist`
+Rollback: redeploy a previous commit from the GitHub Pages "Deployments" view.
 
-## Local Development Server
+## Vercel
 
-To run the development server:
+1. Import the repository.
+2. Build command `npm run build`; output directory `dist`.
+3. `vercel.json` handles the SPA rewrite (`/(.*) → /index.html`) and security headers
+   (`X-Content-Type-Options: nosniff`, `X-Frame-Options: DENY`, `Referrer-Policy`) plus immutable
+   `Cache-Control` for static assets.
 
-```bash
-cd d:\mo\frontend
-node node_modules\vite\bin\vite.js
-```
+Rollback: Vercel "Deployments" → redeploy a previous commit.
 
-The dev server will start at `http://localhost:5173`
+## Cloudflare Pages
 
-## Troubleshooting
+1. Cloudflare Dashboard → Pages → connect the GitHub repo.
+2. Build command `npm run build`; output directory `dist`.
+3. No `.env` required. Add `VITE_FODOL_API_BASE` only if the protected-content API lives on a
+   different origin (recommended is **same origin via reverse proxy — leave it empty**, see `.env.fodol.example`).
 
-### Build fails with "command not found"
-
-The npm/npx scripts may be blocked by PowerShell execution policy. Use the direct node path:
+## Local development
 
 ```bash
-node node_modules/typescript/bin/tsc
-node node_modules/vite/bin/vite.js
+npm install
+npm run dev      # Vite on http://localhost:5173
 ```
 
-### Service worker not registering
+- The dev Vite server proxies `/api` → `$FODOL_DEV_API` (default `http://127.0.0.1:8787`) so the
+  protected reader can talk to the FODOL content server on the same origin (first-party HttpOnly cookie).
+- The FODOL content **server is a separate repository** — it is not in this repo. To develop the
+  protected reader you need it running on `8787` (see `scripts/fodol-env.ps1` in that repo). The static
+  site (everything except the protected magazine) works with no server.
 
-Check that:
-- `sw.js` is in the `public/` directory
-- The file is being served from `/sw.js` (not `/public/sw.js`)
-- No network errors in browser console
+## Environment variables (frontend runtime)
 
-### PWA not installable
+Only **two** variables are actually read by the frontend code:
 
-Verify:
-- `manifest.json` is in `public/` directory
-- Manifest has all required fields (name, short_name, icons, start_url)
-- Icons are at least 192x192 and 512x512
-- HTTPS is used (localhost is allowed for development)
+| Variable | Read where | Effect | Default |
+|---|---|---|---|
+| `VITE_FODOL_API_BASE` | `src/lib/contentApi.ts` | Base for protected-content API calls. Empty = same origin (recommended). | empty |
+| `import.meta.env.BASE_URL` | Vite built-in | Drives `publicAsset()`, router `basename`, SW registration. Set from `vite.config.ts` `base`. | `/` or `/scii/` |
 
-## Environment Variables Reference
+> `VITE_DB_MODE`, `VITE_ENABLE_LIVE_FORMS`, and `VITE_SUPABASE_*` appear in `.env.example` /
+> `.env.fodol.example` but are **not referenced anywhere in `src/` or `scripts/`** — they are
+> dead config from an earlier version. See `docs/ai/GOTCHAS.md` §5 and `docs/KNOWN_ISSUES.md`.
+> Do **not** wire them in or enable live forms without privacy/legal sign-off.
 
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `VITE_DB_MODE` | Database mode: `mock` or `supabase` | `mock` | No |
-| `VITE_ENABLE_LIVE_FORMS` | Explicit approval gate for live public submissions | `false` | No |
-| `VITE_SUPABASE_URL` | Supabase project URL | - | Yes (only if `VITE_ENABLE_LIVE_FORMS=true`) |
-| `VITE_SUPABASE_ANON_KEY` | Supabase anonymous key | - | Yes (only if `VITE_ENABLE_LIVE_FORMS=true`) |
+## Production checklist
 
-## Production Safety Gate
-
-Public volunteer and contact forms must remain in staging mode until the privacy notice, retention policy, and data-owner approval are complete.
-
-- Default safe state: `VITE_ENABLE_LIVE_FORMS=false`
-- Required before enabling live data collection:
-  - Approved privacy notice and retention policy
-  - Verified hosting and database choice
-  - Reviewer sign-off on data handling and admin access
-
-## Production Checklist
-
-- [ ] Build completes without errors
-- [ ] PWA manifest is valid (check in browser DevTools → Application → Manifest)
-- [ ] Service worker registers (check in browser DevTools → Application → Service Workers)
-- [ ] All routes work (Home, About, Activities, Team, Magazine, etc.)
-- [ ] Forms remain in staging mode unless `VITE_ENABLE_LIVE_FORMS=true`
-- [ ] Theme toggle persists
-- [ ] Language switcher works (RTL/LTR)
-- [ ] Responsive design verified at 320px, 768px, 1024px, 1440px
-- [ ] No console errors in browser
+- [ ] `npm run build` clean (tsc passes)
+- [ ] `npm test` green (10 release-readiness checks)
+- [ ] PWA manifest valid (DevTools → Application → Manifest); SW registers
+- [ ] All routes work; language switcher (RTL/LTR) works; checked in both `ar` and `en`
+- [ ] No hard-coded absolute asset paths (use `publicAsset()` / `%BASE_URL%`)
+- [ ] Forms stay in staging unless live-data sign-off is complete
+- [ ] No `private-storage/`, `.env.local`, `dist/`, or `public/magazine/**` content committed
 
 ## Rollback
 
-If you need to rollback:
-
-**Cloudflare Pages**: Use the "Deployments" tab to redeploy a previous commit
-**Vercel**: Use the "Releases" tab to roll back to a previous version
+- **GitHub Pages**: redeploy a previous commit (Pages → Deployments).
+- **Vercel**: redeploy a previous release.
+- **Cloudflare Pages**: redeploy a previous deployment.

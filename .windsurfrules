@@ -1,0 +1,3 @@
+# Windsurf rules — alias stub
+Read `AGENTS.md` at repo root first. Then ONE file from `docs/ai/` matching your task (index table in AGENTS.md).
+Non-negotiables (also in AGENTS.md): TypeScript strict; i18n via `useLocale().t(ar,en)`; Tailwind v4 tokens in src/index.css are release-verified; verify with `npm run build` + `npm test` (artifact checks, no unit tests); never touch dist/, *.lock, public/magazine/**, private-storage/, .env.local; never build FODOL page URLs client-side.
