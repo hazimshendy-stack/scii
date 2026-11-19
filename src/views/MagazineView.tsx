@@ -397,7 +397,7 @@ export const MagazineView: React.FC = () => {
 
           {/* Viewport */}
           <div
-            className={`w-full overflow-auto bg-slate-950 flex justify-center items-start p-2 sm:p-6 md:p-8 ${
+            className={`w-full overflow-auto bg-slate-950 flex p-2 sm:p-6 md:p-8 ${
               isFullscreen ? 'flex-1 h-full' : 'h-[72vh] sm:h-[78vh] min-h-[560px]'
             }`}
             onTouchStart={onTouchStart}
@@ -415,8 +415,8 @@ export const MagazineView: React.FC = () => {
             </button>
 
             <div
-              style={{ width: `${zoomLevel}%`, transition: 'width 0.2s ease', aspectRatio: PAGE_ASPECT }}
-              className="max-w-full relative bg-white shadow-2xl overflow-hidden rounded-sm"
+              style={{ width: `${zoomLevel}%`, transition: 'width 0.2s ease', aspectRatio: PAGE_ASPECT, margin: 'auto' }}
+              className="shrink-0 relative bg-white shadow-2xl overflow-hidden rounded-sm"
             >
               {loadState === 'error' ? (
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-amber-50 p-6 text-center">
@@ -513,9 +513,9 @@ export const MagazineView: React.FC = () => {
         <div className="w-full mt-4 p-4 rounded-2xl bg-amber-50 border border-amber-200 flex items-start gap-3 text-xs text-amber-900 leading-relaxed">
           <Info className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
           <p>
-            {t(
-              'تنويه: هذه المجلة غير تابعة لأي دار نشر أو مؤسسة. النسخة المتاحة هي هذه النسخة الرقمية فقط، المتاحة للاطلاع فقط. لا يُسمح بتنزيلها أو نسخها أو استخدامها أو بيعها بأي شكل من الأشكال.',
-              'Notice: This magazine is not affiliated with any publisher or institution. The only available version is this digital copy, made available for reading only. Downloading, copying, using, or selling it in any form is strictly prohibited.'
+            <strong>{t('تنويه حقوقي:', 'Copyright Notice:')}</strong> {t(
+              'هذه المجلة إصدار مستقل غير تابع لأي دار نشر أو مؤسسة. وتُتاح حصريًا عبر هذه النسخة الرقمية للاطلاع والقراءة فقط، دون السماح بتنزيلها أو نسخها أو إعادة نشرها أو استغلال محتواها أو بيعها بأي شكل من الأشكال.',
+              'This magazine is an independent edition not affiliated with any publisher or institution. It is exclusively available through this digital copy for browsing and reading only, and downloading, copying, republishing, exploiting its content, or selling it in any form is strictly prohibited.'
             )}
           </p>
         </div>
@@ -539,12 +539,6 @@ export const MagazineView: React.FC = () => {
                 {t('رئيس التحرير', 'Editor-in-Chief')}
               </span>
               <p className="font-extrabold text-gray-900 text-base">عبدالرحمن سعد</p>
-              <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                {t(
-                  'مؤسس ورئيس مبادرة SCI INFINITY — الهيئة الاستشارية العلمية\nكلية العلوم، جامعة المنصورة، مصر',
-                  'Founder & President of SCI INFINITY Initiative — Scientific Advisory Board\nFaculty of Science, Mansoura University, Egypt'
-                )}
-              </p>
             </div>
 
             {/* Editorial Team */}
